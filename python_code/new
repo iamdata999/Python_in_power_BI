@@ -1,1 +1,97 @@
-code
+#load the get data
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set_theme(style="darkgrid")
+
+tips = sns.load_dataset("tips")
+
+#your dataset is 'dataset'
+
+#all the visualization for Prectice
+
+#no.1 visualize
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+sns.set_theme(style="darkgrid")
+
+# Assuming your dataset is named 'df'
+sns.displot(x="total_bill", data=dataset, kde=True, bins=20)
+plt.title("Distribution of Total Bill")
+plt.xlabel("Total Bill")
+plt.ylabel("Frequency")
+plt.show()
+
+#no.2 visualize
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Assuming your dataset is named 'df'
+# Grouping the data by 'day' and 'time', then calculating the mean of 'tip'
+grouped_data = dataset.groupby(['day', 'time'])['tip'].mean().reset_index()
+
+# Create a clustered bar chart
+plt.figure(figsize=(10, 6))
+sns.barplot(data=grouped_data, x='day', y='tip', hue='time', palette='Set2')
+
+plt.title("Average Tip by Day and Time")
+plt.xlabel("Day")
+plt.ylabel("Average Tip")
+plt.legend(title="Time")
+plt.show()
+
+#no.3 visualize
+import matplotlib.pyplot as plt
+
+# Grouping the data by 'smoker' and summing up the tips
+smoker_data = dataset.groupby('smoker')['tip'].sum()
+
+# Create a pie chart with a hole in the center
+plt.figure(figsize=(8, 8))
+plt.pie(smoker_data, labels=smoker_data.index, autopct='%1.1f%%', startangle=90, colors=['#66b3ff', '#99ff99'])
+plt.gca().add_artist(plt.Circle((0, 0), 0.6, color='white'))  # Add the hole
+
+plt.title("Proportion of Tips by Smoker Status")
+plt.show()
+
+
+#no.4 visualize
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Grouping the data by 'sex' and calculating the mean of 'total_bill'
+grouped_data = dataset.groupby('sex')['total_bill'].mean().reset_index()
+
+# Create a horizontal bar chart
+plt.figure(figsize=(8, 5))
+sns.barplot(data=grouped_data, y='sex', x='total_bill', palette='viridis')
+
+plt.title("Average Total Bill by Sex")
+plt.xlabel("Average Total Bill")
+plt.ylabel("Sex")
+plt.show()
+
+#no.5 visualize
+import matplotlib.pyplot as plt
+
+# Grouping the data by 'sex' and 'smoker' and counting the occurrences
+grouped_data = dataset.groupby(['sex', 'smoker']).size().unstack()
+
+# Plotting pie charts for each gender
+fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+
+for i, sex in enumerate(grouped_data.index):
+    axes[i].pie(
+        grouped_data.loc[sex],
+        labels=grouped_data.columns,
+        autopct='%1.1f%%',
+        startangle=90,
+        colors=['#66b3ff', '#ff9999']
+    )
+    axes[i].set_title(f"Smoker Distribution for {sex}")
+
+plt.tight_layout()
+plt.show()
