@@ -18,7 +18,7 @@ import numpy as np
 import pandas as pd
 sns.set_theme(style="darkgrid")
 
-# Assuming your dataset is named 'df'
+# Assuming your dataset is named 'dataset'
 sns.displot(x="total_bill", data=dataset, kde=True, bins=20)
 plt.title("Distribution of Total Bill")
 plt.xlabel("Total Bill")

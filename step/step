@@ -1,1 +1,86 @@
-how step
+# How to Use Python Scripts in Power BI Desktop  
+*(Ensure you are using Power BI Desktop for this process.)*  
+
+---
+
+## **Step 1: Open File Menu**  
+- Open Power BI Desktop.  
+- Go to the **File** menu in the top-left corner.
+![Step 1](../Assets/step_1.png) 
+---
+
+## **Step 2: Navigate to Options and Settings**
+- Select **Options and Settings**.  
+- Do not select "Sign Out." 
+![Step 2](../Assets/step_2.png) 
+
+---
+
+## **Step 3: Configure Python Scripting**  
+- In the Options menu, locate **Python scripting** (usually under "Global" or "Preview features").  
+- If Python is not installed:  
+  1. Download Python from the official [Python website](https://www.python.org/) or use a distribution like Anaconda.  
+  2. Install Python and make a note of the installation directory (e.g., `C:\Python39`).
+  ![Step 3](../Assets/step_3.png) 
+
+---
+
+## **Step 4: Install Required Python Libraries**  
+- Open **Command Prompt** (Windows) or Terminal (Mac/Linux).  
+- Type the following command to install Python libraries:  
+  ```bash
+  pip install numpy pandas matplotlib seaborn
+  ```
+  ![Step 4](../Assets/step_4.png) 
+
+
+# Steps to Use Python Scripts in Power BI Desktop  
+
+---
+
+## **Step 5: Get Data**  
+- In Power BI, go to the **Home** tab.  
+- Click **Get Data**. 
+
+![Step 5](../Assets/Step_5.png) 
+---
+
+## **Step 6: Select Python Script**  
+- In the Get Data dialog box:  
+  - Search for **Python Script**.  
+  - Select it and click **Connect**. 
+  ![Step 6](../Assets/step_6.png)  
+
+---
+
+## **Step 7: Enter Python Code**  
+- A new dialog box will appear with a text input area.  
+- Paste the following Python code into the box:  
+  ```python
+  import numpy as np
+  import pandas as pd
+  import matplotlib.pyplot as plt
+  import seaborn as sns
+
+  # Set theme for Seaborn
+  sns.set_theme(style="darkgrid")
+
+  # Load the "tips" dataset from Seaborn
+  tips = sns.load_dataset("tips")
+
+  # Output the dataset for use in Power BI
+  tips
+  ```
+
+  ![Step 7](../Assets/step_7.png) 
+
+
+## **Step 8: Transform Data** 
+After the Python script runs, click Transform Data.
+Use the Power Query Editor to clean, reshape, and prepare your data for analysis.
+
+![Step 8](../Assets/step_8.png) 
+
+## see the picture to help you
+
+
